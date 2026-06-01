@@ -1,0 +1,7 @@
+---
+- hosts: aws_ec2
+  become: true
+  roles:
+    - k3s-server
+    - helm
+    - monitoring

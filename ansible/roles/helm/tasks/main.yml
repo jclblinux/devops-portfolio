@@ -1,0 +1,20 @@
+---
+- name: "stazeni helm scriptu"
+  become: true
+  ansible.builtin.shell:
+    cmd: "curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash"
+    creates: /usr/local/bin/helm
+
+- name: "pridani gitea helm repozitare"
+  become: true
+  ansible.builtin.shell:
+    cmd: "helm repo add gitea https://dl.gitea.com/charts/"
+  environment:
+    KUBECONFIG: /etc/rancher/k3s/k3s.yaml
+
+- name: "pridani bitnami helm repozitare"
+  become: true
+  ansible.builtin.shell:
+    cmd: "helm repo add bitnami https://charts.bitnami.com/bitnami"
+  environment:
+    KUBECONFIG: /etc/rancher/k3s/k3s.yaml

@@ -1,0 +1,52 @@
+prometheus:
+  prometheusSpec:
+    retention: 2d
+    resources:
+      limits:
+        memory: 1Gi
+        cpu: 500m
+      requests:
+        memory: 512Mi
+        cpu: 100m
+
+grafana:
+  adminPassword: changeMe
+  service:
+    type: NodePort
+    nodePort: 30030
+  resources:
+    limits:
+      memory: 256Mi
+      cpu: 300m
+    requests:
+      memory: 128Mi
+      cpu: 50m
+
+alertmanager:
+  alertmanagerSpec:
+    replicas: 1
+    resources:
+      limits:
+        memory: 128Mi
+        cpu: 100m
+      requests:  
+        memory: 64Mi
+        cpu: 10m
+
+nodeExporter:
+  resources:
+    limits:
+      memory: 64Mi
+      cpu: 100m
+    requests:
+      memory: 32Mi
+      cpu: 10m
+
+kubeStateMetrics:
+  resources:
+    limits:
+      memory: 128Mi
+      cpu: 100m
+    requests:
+      memory: 64Mi
+      cpu: 10m
