@@ -58,10 +58,10 @@ resource "aws_instance" "main" {
   subnet_id              = var.subnet_id
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.sec_group.id]
-    root_block_device {
-    volume_size            = var.root_volume_size
-    volume_type            = "gp3"
-    }
+  root_block_device {
+    volume_size = var.root_volume_size
+    volume_type = "gp3"
+  }
   tags = {
     Name        = "${var.project_name}-main"
     Project     = var.project_name

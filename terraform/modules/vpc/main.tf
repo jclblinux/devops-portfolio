@@ -3,8 +3,8 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    Name        = "${var.project_name}-vpc"
-    Project     = var.project_name
+    Name    = "${var.project_name}-vpc"
+    Project = var.project_name
   }
 }
 
@@ -14,28 +14,28 @@ resource "aws_subnet" "subnet" {
   availability_zone       = var.availability_zone
   map_public_ip_on_launch = true
   tags = {
-    Name        = "${var.project_name}-subnet"
-    Project     = var.project_name
+    Name    = "${var.project_name}-subnet"
+    Project = var.project_name
   }
 }
 
 resource "aws_internet_gateway" "internet" {
-  vpc_id                  = aws_vpc.main.id
+  vpc_id = aws_vpc.main.id
   tags = {
-    Name        = "${var.project_name}-internet-gateway"
-    Project     = var.project_name
+    Name    = "${var.project_name}-internet-gateway"
+    Project = var.project_name
   }
 }
 
 resource "aws_route_table" "route" {
-  vpc_id                  = aws_vpc.main.id
-    route {
+  vpc_id = aws_vpc.main.id
+  route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.internet.id
   }
   tags = {
-    Name        = "${var.project_name}-vpc-route"
-    Project     = var.project_name
+    Name    = "${var.project_name}-vpc-route"
+    Project = var.project_name
   }
 }
 
