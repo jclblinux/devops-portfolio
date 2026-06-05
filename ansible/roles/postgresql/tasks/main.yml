@@ -1,3 +1,4 @@
+---
 - name: "Pridani bitnami repo"
   kubernetes.core.helm_repository:
     name: bitnami
@@ -5,7 +6,7 @@
 
 - name: "Zkopirovani postgresql-values.yml z localu na EC2"
   ansible.builtin.copy:
-    src: /home/administrator/devops-portfolio/helm/postgresql-values.yaml
+    src: "{{ project_root }}/helm/postgresql-values.yaml"
     dest: /home/ubuntu/postgresql-values.yaml
 
 - name: "Nasazeni PostgreSQL pres Helm"

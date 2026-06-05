@@ -32,8 +32,3 @@ variable "root_volume_size" {
   description = "velikost root disku (GB)"
   type        = number
 }
-
-variable "admin_ip" {
-  description = "ma verejna ip"
-  type        = string
-}

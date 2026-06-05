@@ -10,17 +10,17 @@ prometheus:
         cpu: 100m
 
 grafana:
-  adminPassword: changeMe
+  adminPassword: GrafanaAdmin123
   service:
     type: NodePort
     nodePort: 30030
   resources:
     limits:
-      memory: 256Mi
-      cpu: 300m
+      memory: 512Mi
+      cpu: 500m
     requests:
-      memory: 128Mi
-      cpu: 50m
+      memory: 256Mi
+      cpu: 200m
 
 alertmanager:
   alertmanagerSpec:
@@ -29,7 +29,7 @@ alertmanager:
       limits:
         memory: 128Mi
         cpu: 100m
-      requests:  
+      requests:
         memory: 64Mi
         cpu: 10m
 

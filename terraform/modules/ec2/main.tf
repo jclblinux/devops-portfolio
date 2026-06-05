@@ -3,20 +3,16 @@ resource "aws_security_group" "sec_group" {
   name        = "${var.project_name}-sg"
   description = "Security group for k3s node"
   ingress {
+    description = "HTTP"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    description = "HTTPS"
     from_port   = 443
     to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    from_port   = 30080
-    to_port     = 30080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -25,14 +21,7 @@ resource "aws_security_group" "sec_group" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.admin_ip]
-  }
-  ingress {
-    description = "Kubernetes API"
-    from_port   = 6443
-    to_port     = 6443
-    protocol    = "tcp"
-    cidr_blocks = [var.admin_ip]
+    cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
     description = "Grafana"

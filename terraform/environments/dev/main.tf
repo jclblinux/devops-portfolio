@@ -14,5 +14,4 @@ module "ec2" {
   subnet_id        = module.vpc.subnet_id
   key_name         = var.key_name
   root_volume_size = var.root_volume_size
-  admin_ip         = var.admin_ip
 }

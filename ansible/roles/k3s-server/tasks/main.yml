@@ -1,4 +1,5 @@
-- name: "APT update upgrade "
+---
+- name: "APT update upgrade"
   become: true
   ansible.builtin.apt:
     upgrade: yes
@@ -27,7 +28,7 @@
     mode: "0755"
     group: ubuntu
 
-- name: "Pridani KUBECONFIG do .bashrc" #odstranit???
+- name: "Pridani KUBECONFIG do .bashrc"
   ansible.builtin.lineinfile:
     path: /home/ubuntu/.bashrc
     line: 'export KUBECONFIG=$HOME/.kube/config'

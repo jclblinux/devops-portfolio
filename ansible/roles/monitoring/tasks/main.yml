@@ -1,3 +1,4 @@
+---
 - name: "Instalace python3-kubernetes pres APT"
   become: true
   ansible.builtin.apt:
@@ -11,7 +12,7 @@
 
 - name: "Zkopirovani monitoring-values.yml z localu na EC2"
   ansible.builtin.copy:
-    src: /home/administrator/devops-portfolio/helm/monitoring-values.yaml
+    src: "{{ project_root }}/helm/monitoring-values.yaml"
     dest: /home/ubuntu/monitoring-values.yaml
 
 - name: "Nasazeni monitoring pres Helm"

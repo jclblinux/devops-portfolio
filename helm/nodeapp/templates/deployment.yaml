@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp
+  name: {{ .Release.Name }}
   labels:
-    app: nodeapp
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: nodeapp
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: nodeapp
+        app: {{ .Release.Name }}
     spec:
       containers:
-        - name: nodeapp
+        - name: {{ .Release.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 3000
+            - containerPort: {{ .Values.service.targetPort }}
           env:
             - name: DB_HOST
               value: {{ .Values.database.host | quote }}
@@ -35,7 +35,7 @@ spec:
                   name: nodeapp-secret
                   key: db-password
             - name: PORT
-              value: "3000"
+              value: {{ .Values.service.targetPort | quote }}
           resources:
             limits:
               memory: {{ .Values.resources.limits.memory }}
@@ -46,12 +46,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: 3000
+              port: {{ .Values.service.targetPort }}
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /health
-              port: 3000
+              port: {{ .Values.service.targetPort }}
             initialDelaySeconds: 5
             periodSeconds: 5
