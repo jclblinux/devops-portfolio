@@ -1,12 +1,12 @@
 ---
 - name: "Zkopirovani nodeapp values.yml z localu na EC2"
   ansible.builtin.copy:
-    src: "{{ project_root }}/helm/nodeapp/values.yaml"
+    src: "{{ playbook_dir }}/../helm/nodeapp/values.yaml"
     dest: /home/ubuntu/nodeapp-values.yaml
 
 - name: "Zkopirovani nodeapp Helm chartu z localu na EC2"
   ansible.builtin.copy:
-    src: "{{ project_root }}/helm/nodeapp/"
+    src: "{{ playbook_dir }}/../helm/nodeapp/"
     dest: /home/ubuntu/nodeapp-chart/
     mode: "0644"
     directory_mode: "0755"
@@ -21,7 +21,6 @@
     values_files:
       - /home/ubuntu/nodeapp-values.yaml
     values:
-
       image:
         tag: "{{ nodeapp_image_tag }}"
       database:

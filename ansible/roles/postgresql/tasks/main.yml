@@ -6,7 +6,7 @@
 
 - name: "Zkopirovani postgresql-values.yml z localu na EC2"
   ansible.builtin.copy:
-    src: "{{ project_root }}/helm/postgresql-values.yaml"
+    src: "{{ playbook_dir }}/../helm/postgresql-values.yaml"
     dest: /home/ubuntu/postgresql-values.yaml
 
 - name: "Nasazeni PostgreSQL pres Helm"
