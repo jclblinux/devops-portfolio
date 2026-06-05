@@ -12,8 +12,18 @@ prometheus:
 grafana:
   adminPassword: GrafanaAdmin123
   service:
-    type: NodePort
-    nodePort: 30030
+    type: ClusterIP
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    path: /grafana
+    pathType: Prefix
+    hosts:
+      - ""
+  grafana.ini:
+    server:
+      root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana/"
+      serve_from_sub_path: true
   resources:
     limits:
       memory: 512Mi
