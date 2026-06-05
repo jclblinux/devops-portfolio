@@ -1,0 +1,21 @@
+- name: "Zkopirovani nodeapp values.yml z localu na EC2"
+  ansible.builtin.copy:
+    src: /home/administrator/devops-portfolio/helm/nodeapp/values.yaml
+    dest: /home/ubuntu/nodeapp-values.yaml
+
+- name: "Zkopirovani nodeapp Helm chartu z localu na EC2"
+  ansible.builtin.copy:
+    src: /home/administrator/devops-portfolio/helm/nodeapp/
+    dest: /home/ubuntu/nodeapp-chart/
+    mode: "0644"
+    directory_mode: "0755"
+
+- name: "Nasazeni nodeapp pres Helm"
+  kubernetes.core.helm:
+    release_name: nodeapp
+    chart_ref: /home/ubuntu/nodeapp-chart/
+    release_namespace: nodeapp
+    create_namespace: false
+    values_files:
+      - /home/ubuntu/nodeapp-values.yaml
+    kubeconfig: /home/ubuntu/.kube/config
