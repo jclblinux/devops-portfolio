@@ -5,3 +5,5 @@
     - k3s-server
     - helm
     - monitoring
+    - postgresql
+    - nodeapp
