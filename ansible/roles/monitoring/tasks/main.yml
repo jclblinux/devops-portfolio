@@ -12,7 +12,7 @@
 
 - name: "Zkopirovani monitoring-values.yml z localu na EC2"
   ansible.builtin.copy:
-    src: "{{ project_root }}/helm/monitoring-values.yaml"
+    src: "{{ project_root }}/helm/monitoring-values.example.yaml"
     dest: /home/ubuntu/monitoring-values.yaml
 
 - name: "Nasazeni monitoring pres Helm"

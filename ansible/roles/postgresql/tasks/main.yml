@@ -15,6 +15,10 @@
     chart_ref: bitnami/postgresql
     release_namespace: nodeapp
     create_namespace: true
+    kubeconfig: /home/ubuntu/.kube/config
     values_files:
       - /home/ubuntu/postgresql-values.yaml
-    kubeconfig: /home/ubuntu/.kube/config
+    values:
+      auth:
+        postgresPassword: "{{ postgres_admin_password }}"
+        password: "{{ nodeapp_db_password }}"
