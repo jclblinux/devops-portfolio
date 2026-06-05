@@ -1,8 +1,7 @@
 ---
-- name: "APT update upgrade"
+- name: "APT update"
   become: true
   ansible.builtin.apt:
-    upgrade: yes
     update_cache: yes
 
 - name: "Shell instalace k3s"
