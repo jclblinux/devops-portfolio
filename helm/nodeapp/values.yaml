@@ -6,10 +6,9 @@ image:
 replicaCount: 1
 
 service:
-  type: NodePort
-  port: 3000
+  type: ClusterIP
+  port: 80
   targetPort: 3000
-  nodePort: 30090
 
 database:
   host: postgres-postgresql.nodeapp.svc.cluster.local

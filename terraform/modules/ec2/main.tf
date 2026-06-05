@@ -3,7 +3,7 @@ resource "aws_security_group" "sec_group" {
   name        = "${var.project_name}-sg"
   description = "Security group for k3s node"
   ingress {
-    description = "HTTP"
+    description = "HTTP pro Traefik Ingress"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -27,13 +27,6 @@ resource "aws_security_group" "sec_group" {
     description = "Grafana"
     from_port   = 30030
     to_port     = 30030
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    description = "Nodeapp"
-    from_port   = 30090
-    to_port     = 30090
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
