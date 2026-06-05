@@ -8,6 +8,3 @@
 
 # Ansible
 *.retry
-
-helm/postgresql-values.yaml
-helm/monitoring-values.yaml

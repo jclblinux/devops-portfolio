@@ -19,9 +19,9 @@
     create_namespace: false
     kubeconfig: /home/ubuntu/.kube/config
     values_files:
-      - /home/ubuntu/nodeapp-values.yaml # Načte základní strukturu (kde je heslo CHANGEME)
+      - /home/ubuntu/nodeapp-values.yaml
     values:
-      # Tady Helm přepíše konkrétní hodnoty těmi z GitHub Actions!
+
       image:
         tag: "{{ nodeapp_image_tag }}"
       database:

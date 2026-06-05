@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nodeapp
+            name: {{ .Release.Name }}
             port:
-              number: 80
+              number: {{ .Values.service.port }}

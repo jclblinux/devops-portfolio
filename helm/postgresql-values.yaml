@@ -1,7 +1,7 @@
 auth:
-  postgresPassword: changeMe
+  postgresPassword: CHANGEME
   username: nodeapp
-  password: changeMe
+  password: CHANGEME
   database: nodeapp
 
 primary:
