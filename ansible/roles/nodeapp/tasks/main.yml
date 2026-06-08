@@ -16,7 +16,7 @@
     release_name: nodeapp
     chart_ref: /home/ubuntu/nodeapp-chart/
     release_namespace: nodeapp
-    create_namespace: false
+    create_namespace: true
     kubeconfig: /home/ubuntu/.kube/config
     values_files:
       - /home/ubuntu/nodeapp-values.yaml
