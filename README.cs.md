@@ -45,6 +45,7 @@ devops-portfolio/
         ├── Chart.yaml           # Metadata balíčku (název, verze)
         ├── values.yaml          # Výchozí proměnné aplikace
         └── templates/           # Kubernetes manifesty (Deployment, Service, Ingress, Secret)
+```text
 
 ## Workflow
 
