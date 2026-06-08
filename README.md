@@ -45,7 +45,7 @@ devops-portfolio/
         ├── Chart.yaml           # Chart metadata (name, version)
         ├── values.yaml          # Default application variables
         └── templates/           # Kubernetes manifests (Deployment, Service, Ingress, Secret)
-```text        
+```   
 
 ## Workflow
 
