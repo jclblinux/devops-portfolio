@@ -19,6 +19,7 @@ The deployed application and its CI/CD pipeline are located in a separate reposi
 
 ## Structure
 
+```text
 devops-portfolio/
 ├── terraform/
 │   ├── modules/

@@ -19,6 +19,7 @@ Nasazovaná aplikace + CI/CD pipeline se nachází v samostatném repozitáři: 
 
 ## Struktura
 
+```text
 devops-portfolio/
 ├── terraform/
 │   ├── modules/
